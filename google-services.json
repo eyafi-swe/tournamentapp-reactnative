@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "768863092248",
+    "project_id": "mob-app-ff",
+    "storage_bucket": "mob-app-ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768863092248:android:8e99dc8cd2a63596ae0d6d",
+        "android_client_info": {
+          "package_name": "com.eyafineo.mobapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768863092248-i7cklp8550kjfk44lkfbn86d4bi8ag42.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eyafineo.mobapp",
+            "certificate_hash": "745c53c0ced35d00c1f695aa8b5e0e9739692537"
+          }
+        },
+        {
+          "client_id": "768863092248-qm07irt7eh4c7vvcoehlsen7qas5lhtj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eyafineo.mobapp",
+            "certificate_hash": "eb905ecbf1d3931515ec4f2c9ef5557ff0d36968"
+          }
+        },
+        {
+          "client_id": "768863092248-rag9ib6fnqq981a6jur9f08cjk7i8ut5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0JlvcrRVXBVQZhCmaNwmUAr-XAl4kfIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768863092248-rag9ib6fnqq981a6jur9f08cjk7i8ut5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
