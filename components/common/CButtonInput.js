@@ -14,8 +14,8 @@ const s = StyleSheet.create({
     buttonContainer: {
         flexDirection: 'row',
         paddingHorizontal: 25,
-        backgroundColor: colors.ICON_BG,
-        paddingVertical: 20,
+        backgroundColor: colors.BTN_BG,
+        paddingVertical: 10,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 16,

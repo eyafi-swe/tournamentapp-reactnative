@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { ActivityIndicator, Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, View } from 'react-native'
+import { ActivityIndicator, Alert, StyleSheet, Text, TextInput, View } from 'react-native'
 import g from '../../assets/styles/global'
 import CText from '../../components/common/CText'
 import colors from '../../assets/constants/colors'
@@ -8,7 +8,7 @@ import CButtonInput from '../../components/common/CButtonInput'
 import { AuthContext } from '../../context/UserContext'
 import GoogleIcon from '../../assets/svg/GoogleIcon'
 import CGoogleButtonInput from '../../components/common/CGoogleButtonInput'
-// import { BASE_URL } from '../../utils/constants'
+import { BASE_URL } from '../../utils/constants'
 
 const SignIn = ({ navigation }) => {
     const [loading, setLoading] = useState(false)
@@ -51,7 +51,6 @@ const SignIn = ({ navigation }) => {
         }
 
         console.log(user)
-        return
         fetch(`${BASE_URL}/users`, {
             method: 'POST',
             headers: {
@@ -112,8 +111,7 @@ const SignIn = ({ navigation }) => {
         return (
             <View style={[s.container]}>
                 {/* <LogoIcon /> */}
-                <Text style={s.header}>GAMERS BANK</Text>
-                <Text style={s.subHeader}>Play Game And Earn</Text>
+                <Text style={s.header}>Cholo Kheli</Text>
                 <CInput
                     spaces={false}
                     maxLength={255}
@@ -134,12 +132,12 @@ const SignIn = ({ navigation }) => {
                     errorMessage={errorMessage.password}
                 />
 
-                <CButtonInput label='Sign In' style={{ width: '100%' }} onPress={handleSignIn} />
+                <CButtonInput label='Sign In' style={{ width: '100%', marginTop: 16 }} onPress={handleSignIn} />
 
                 <CGoogleButtonInput
                     onPress={handleGoogleSignIn}
                     label='Google'
-                    style={{ width: '100%', marginTop: 30, backgroundColor: 'red' }}
+                    style={{ width: '100%', marginTop: 16, backgroundColor: '#E71C23' }}
                 />
 
 
@@ -169,7 +167,7 @@ const SignIn = ({ navigation }) => {
 
 const s = StyleSheet.create({
     container: {
-        backgroundColor: colors.BLACK,
+        backgroundColor: colors.BG,
         padding: 23,
         justifyContent: 'center',
         alignItems: 'center',
@@ -189,7 +187,8 @@ const s = StyleSheet.create({
         fontSize: 32,
         fontFamily: 'inter-bold',
         fontWeight: '700',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 32,
     },
     title: {
         marginBottom: 32,
@@ -201,7 +200,7 @@ const s = StyleSheet.create({
         fontWeight: '500',
     },
     input: {
-        maxHeight: 64,
+        maxHeight: 44,
         color: colors.WHITE,
     },
     termsText: {

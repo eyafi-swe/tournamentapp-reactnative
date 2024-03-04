@@ -6,7 +6,7 @@ import colors from '../../assets/constants/colors'
 import CInput from '../../components/common/CInput'
 import CButtonInput from '../../components/common/CButtonInput'
 import { AuthContext } from '../../context/UserContext'
-// import { BASE_URL } from '../../utils/constants'
+import { BASE_URL } from '../../utils/constants'
 
 const SignUp = ({ navigation }) => {
     const [loading, setLoading] = useState(false)
@@ -73,7 +73,6 @@ const SignUp = ({ navigation }) => {
         }
 
         console.log(user)
-        return
         fetch(`${BASE_URL}/users`, {
             method: 'POST',
             headers: {
@@ -97,8 +96,7 @@ const SignUp = ({ navigation }) => {
         return (
             <View style={[s.container]}>
                 {/* <LogoIcon /> */}
-                <Text style={s.header}>GAMERS BANK</Text>
-                <Text style={s.subHeader}>Play Game And Earn</Text>
+                <Text style={s.header}>Cholo Kheli</Text>
                 <CInput
                     spaces={false}
                     maxLength={255}
@@ -153,7 +151,7 @@ const SignUp = ({ navigation }) => {
 
 const s = StyleSheet.create({
     container: {
-        backgroundColor: colors.BLACK,
+        backgroundColor: colors.BG,
         padding: 23,
         justifyContent: 'center',
         alignItems: 'center',
@@ -173,7 +171,8 @@ const s = StyleSheet.create({
         fontSize: 32,
         fontFamily: 'inter-bold',
         fontWeight: '700',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 32,
     },
     title: {
         marginBottom: 32,
@@ -185,7 +184,7 @@ const s = StyleSheet.create({
         fontWeight: '500',
     },
     input: {
-        maxHeight: 64,
+        maxHeight: 44,
         color: colors.WHITE,
     },
     termsText: {

@@ -26,7 +26,7 @@ const CInput = forwardRef(
         },
         ref
     ) => {
-        const [height, setHeight] = useState(64)
+        const [height, setHeight] = useState(54)
         const [showPassword, setShowPassword] = useState(password)
         React.useEffect(() => {
             if (multiline && value === '') {
@@ -61,7 +61,7 @@ const CInput = forwardRef(
                             style={[
                                 g.body1,
                                 s.input,
-                                multiline ? { textAlignVertical: 'top', height: Math.max(64, height) } : null,
+                                multiline ? { textAlignVertical: 'top', height: Math.max(54, height) } : null,
                                 inputStyle,
                                 style,
                             ]}
@@ -90,7 +90,7 @@ const s = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.INPUT_BG,
         borderRadius: 8,
-        minHeight: 64,
+        minHeight: 44,
     },
     input: {
         color: colors.WHITE,
@@ -98,10 +98,11 @@ const s = StyleSheet.create({
         height: '100%',
         justifyContent: 'center',
         flex: 1,
-        minHeight: 64,
+        minHeight: 34,
         backgroundColor: colors.INPUT_BG,
         paddingHorizontal: 20,
         borderRadius: 8,
+        // borderWidth: 1
     },
     label: {
         color: colors.WHITE,
@@ -125,6 +126,7 @@ const s = StyleSheet.create({
         flex: 1,
         marginVertical: 20,
         borderRadius: 10,
+        // borderWidth: 1
     },
     inputIcon: {
         padding: 20,

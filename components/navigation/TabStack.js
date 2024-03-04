@@ -19,7 +19,7 @@ const TabStack = () => {
                     tabBarShowLabel: false,
                     tabBarStyle: [
                         styles.tabBarStyle,
-                        { backgroundColor: colors.BOTTOM_BAR_BG },
+                        { backgroundColor: colors.TOP_BOTTOM_BG },
                     ],
                     tabBarBackground: () => {
 

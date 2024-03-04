@@ -1,6 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-// import Home from '../../screens/Home/Home'
-import SignIn from '../../screens/auth/SignIn'
+import Home from '../../screens/home/Home'
 const Stack = createNativeStackNavigator()
 
 export default function HomeStack() {
@@ -11,7 +10,7 @@ export default function HomeStack() {
                 headerShown: false,
             }}
         >
-            <Stack.Screen name="Home" component={SignIn} />
+            <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
     )
 }

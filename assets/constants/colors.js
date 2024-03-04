@@ -1,11 +1,13 @@
 export default {
+    BG: '#043b5c',
+    BTN_BG: '#EEC213',
     NORMAL: '#001D52',
     HOVER: '#0245CA',
     PUSHED: '#012979',
     LIGHT_NORMAL: '#6c92d5',
     PRIM_BG: '#F2F6FF',
     START_BG: '#F2F6FF',
-    MID_BG: '#e6edfc',
+    MID_BG: '#040D12',
     END_BG: '#d5e0f7',
     SEC_BG: '#D6E2FF',
     HEADING: '#000E29',
@@ -28,7 +30,7 @@ export default {
     SIGN_IN_BTN_BG: '#246BFD',
     GREY: '#808080',
     LIGHT_GRAY: '#9CA2AB',
-    BOTTOM_BAR_BG: '#000E29',
+    BOTTOM_BAR_BG: '#B83227',
     CONTAINER_BG: '#F2F6FF',
     SECONDARY: '#246BFD',
     HOME_TEXT: '#001D52',
@@ -37,8 +39,10 @@ export default {
     IN_PROGRESS_BG: "#1DAF2B",
     ON_HOLD_BG: "#E9203B",
     PAST_DUE_BG: "#500043",
-    NEW_BG: "#2D9CDB",
+    NEW_BG: "#6a6768",
     COMPLETED_BG: "#828282",
     REVIEW_BG: "#FFBA49",
-    Focused_TAB: "#FFBA49"
+    Focused_TAB: "#FFBA49",
+    TOP_BOTTOM_BG: "#080e2c",
+    Box: "#080e2c"
 }

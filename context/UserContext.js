@@ -2,6 +2,7 @@ import React, { useEffect, useState, createContext } from 'react';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { BASE_URL } from '../utils/constants';
 
 export const AuthContext = createContext();
 
@@ -71,7 +72,19 @@ const UserContext = ({ children }) => {
     }
 
     const fetchUser = (email) => {
-
+        fetch(`${BASE_URL}/users/${email}`)
+            .then(res => res.json())
+            .then(data => {
+                AsyncStorage.setItem('user', JSON.stringify(data))
+                // setUserInfo(data)
+                console.log(data, 'user info')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+            .finally(() => {
+                console.log('finally')
+            })
     }
 
     const fetchNews = () => {
