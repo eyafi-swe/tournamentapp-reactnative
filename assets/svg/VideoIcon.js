@@ -29,7 +29,7 @@ export default function VideoIcon({ color = colors.Focused_TAB }) {
             <Path
                 d="M42.953 29c0-1.65 1.129-2.26 2.509-1.356l52.981 34.712c1.38.904 1.38 2.384 0 3.289l-52.981 34.711c-1.38.904-2.509.295-2.509-1.355V29z"
                 style={{
-                    fill: colors.ICON_BG,
+                    fill: colors.BTN_BG,
                 }}
             />
         </Svg>

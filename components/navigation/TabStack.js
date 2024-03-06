@@ -1,11 +1,12 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { SafeAreaView, StyleSheet, View } from 'react-native'
-import colors from '../../assets/constants/colors'
-import HomeIcon from '../../assets/svg/HomeIcon'
-import ProfileIcon from '../../assets/svg/ProfileIcon'
-import WalletIcon from '../../assets/svg/WalletIcon'
-import DiamondIcon from '../../assets/svg/DiamondIcon'
-import HomeStack from './HomeStack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import colors from '../../assets/constants/colors';
+import HomeIcon from '../../assets/svg/HomeIcon';
+import ProfileIcon from '../../assets/svg/ProfileIcon';
+import WalletIcon from '../../assets/svg/WalletIcon';
+import DiamondIcon from '../../assets/svg/DiamondIcon';
+import HomeStack from './HomeStack';
+import WalletScreen from '../../screens/wallet/WalletScreen';
 
 const Tab = createBottomTabNavigator()
 
@@ -40,7 +41,7 @@ const TabStack = () => {
                     }}
                     component={HomeStack}
                 />
-                <Tab.Screen
+                {/* <Tab.Screen
                     name="TopUp"
                     screenOption={{
                         tabBarHideOnKeyboard: true,
@@ -53,7 +54,7 @@ const TabStack = () => {
                         ),
                     }}
                     component={HomeStack}
-                />
+                /> */}
                 <Tab.Screen
                     name="WalletStack"
                     screenOption={{
@@ -66,7 +67,7 @@ const TabStack = () => {
                             </View>
                         ),
                     }}
-                    component={HomeStack}
+                    component={WalletScreen}
                 />
                 <Tab.Screen
                     name="Profile"

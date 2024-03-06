@@ -31,6 +31,11 @@ const s = StyleSheet.create({
     },
     headerTitle: {
         marginLeft: 10,
+        // borderWidth: 1,
+        width: '80%',
+        fontWeight: '700',
+        textAlign: 'center',
+        color: colors.ICON_BG,
         // backgroundColor:'yellow'
     },
 })

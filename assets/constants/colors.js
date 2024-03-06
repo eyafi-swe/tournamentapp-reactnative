@@ -44,5 +44,13 @@ export default {
     REVIEW_BG: "#FFBA49",
     Focused_TAB: "#FFBA49",
     TOP_BOTTOM_BG: "#080e2c",
-    Box: "#080e2c"
+    Box: "#080e2c",
+    MODAL_BG: "#ced4da",
+    Zero_Cash_BG: "#d90429",
+    Zero_Cash_Text: "#ffffff",
+    Has_Cash_BG: "#006d77",
+    Has_Cash_Text: "#ffffff",
+    bkash: "#FF007F",
+    rocket: "#A45EE9",
+    nagad: "#FF5349",
 }

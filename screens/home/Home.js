@@ -7,6 +7,7 @@ import NotificationIcon from '../../assets/svg/NotificationIcon'
 import Carousel from 'react-native-anchor-carousel';
 import MicIcon from '../../assets/svg/MicIcon'
 import { BASE_URL } from '../../utils/constants'
+import Header from '../../components/sections/Header'
 
 const data = [
   { id: 1, title: 'Item 1', uri: 'https://static.vecteezy.com/system/resources/thumbnails/022/192/222/small/hooded-masked-actor-young-fantastic-ai-photo.jpg' },
@@ -82,22 +83,10 @@ const Home = ({ navigation }) => {
   if (!loading) {
     return (
       <SafeAreaView style={s.containerBG}>
-        <StatusBar
-
-          hidden={true}
-        />
+        <StatusBar hidden={true} />
 
         <View style={[s.outerPadding]}>
-          <View style={s.headerContainer}>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-
-              <Image source={require('../../assets/img/Logo.png')} style={{ width: 48, height: 45, }} />
-              <Text style={{ color: colors.WHITE, marginLeft: 5, fontSize: 16, fontWeight: 'bold' }}>CholoKheli</Text>
-            </View>
-            <TouchableOpacity onPress={() => navigation.navigate('News')}>
-              <NotificationIcon numb={news.length} />
-            </TouchableOpacity>
-          </View>
+          <Header navigation={navigation} newsCount={news.length} />
           <ScrollView style={{ flex: 1, }}>
             <View style={{ flexDirection: 'row', marginHorizontal: 20, backgroundColor: colors.INPUT_BG, marginBottom: 20, paddingHorizontal: 5, borderRadius: 10 }}>
               <View style={{ paddingVertical: 10, paddingRight: 5, borderRightWidth: 1.5, borderRightColor: colors.COMPLETED_BG }}>
@@ -123,29 +112,29 @@ const Home = ({ navigation }) => {
 
 
             <View style={{ marginTop: 20, paddingHorizontal: 16 }}>
-              <Text style={s.header}>Starting In Few Minutes</Text>
+              <Text style={s.header}>Starting Really Soon</Text>
 
               <View style={s.startingViewTop}>
                 <Text style={{ color: colors.WHITE }}>FREE FIRE TOURNAMENT</Text>
-                <Text style={{ color: colors.GREEN_NORMAL }}> <View style={s.dot} /> SOLO <View style={s.dot} />TPP <View style={s.dot} />BERMUDA</Text>
+                <Text style={{ color: colors.RED_NORMAL }}> <View style={s.dot} /> SOLO <View style={s.dot} />TPP <View style={s.dot} />BERMUDA</Text>
               </View>
 
               <View style={s.startingView}>
                 <View style={{ flex: 1 }}>
-                  <Image source={{ uri: 'https://wallpaperaccess.com/full/3884234.jpg' }} style={s.freefireImage} />
+                  <Image source={{ uri: 'https://picfiles.alphacoders.com/213/213735.jpg' }} style={s.freefireImage} />
                 </View>
 
-                <View style={{ flexDirection: 'col', alignItems: 'center', justifyContent: 'space-around' }}>
+                <View style={{ flexDirection: 'col', alignItems: 'center', justifyContent: 'space-around', }}>
                   <View style={{ alignItems: 'center', marginBottom: 16 }}>
-                    <Text style={{ fontSize: 12, color: colors.Focused_TAB }}>PER KILL</Text>
-                    <Text style={{ fontSize: 18, color: colors.Focused_TAB }}>BDT 10</Text>
+                    <Text style={{ fontSize: 12, color: colors.ICON_BG }}>PER KILL</Text>
+                    <Text style={{ fontSize: 18, color: colors.ICON_BG }}>BDT 10</Text>
                   </View>
 
-                  <TouchableOpacity style={{ backgroundColor: colors.GREEN_NORMAL, paddingHorizontal: 12, borderRadius: 5, }}
+                  <TouchableOpacity style={{ flexDirection: 'row', paddingVertical: 5, gap: 3, backgroundColor: colors.BTN_BG, paddingHorizontal: 12, borderRadius: 5, }}
                     onPress={() => navigation.navigate('ContestDetails', { item: contests.find(x => x.title == 'Starting Soon') })}
                   >
-                    <Text style={{ color: colors.WHITE, textAlign: 'center' }}>20/- </Text>
-                    <Text style={{ color: colors.WHITE, textAlign: 'center' }}>JOIN</Text>
+                    <Text style={{ color: colors.RED_NORMAL, textAlign: 'center', fontWeight: '700' }}>JOIN</Text>
+                    <Text style={{ color: colors.RED_NORMAL, textAlign: 'center', fontWeight: '700' }}>20/- </Text>
                   </TouchableOpacity>
 
 
@@ -196,11 +185,11 @@ const s = StyleSheet.create({
     height: 5,
     width: 5,
     borderRadius: 5,
-    backgroundColor: colors.RED_NORMAL
+    backgroundColor: colors.GREEN_NORMAL
   },
 
   freefireImage: {
-    width: 170,
+    width: "80%",
     height: 100,
     borderRadius: 8,
   },
