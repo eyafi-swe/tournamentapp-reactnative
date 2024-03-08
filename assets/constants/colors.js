@@ -1,13 +1,12 @@
 export default {
-    BG: '#043b5c',
-    BTN_BG: '#EEC213',
+    BG: '#1d2d44',
+    BTN_BG: '#f7b801',
     NORMAL: '#001D52',
     HOVER: '#0245CA',
     PUSHED: '#012979',
     LIGHT_NORMAL: '#6c92d5',
     PRIM_BG: '#F2F6FF',
     START_BG: '#F2F6FF',
-    MID_BG: '#040D12',
     END_BG: '#d5e0f7',
     SEC_BG: '#D6E2FF',
     HEADING: '#000E29',
@@ -43,7 +42,8 @@ export default {
     COMPLETED_BG: "#828282",
     REVIEW_BG: "#FFBA49",
     Focused_TAB: "#FFBA49",
-    TOP_BOTTOM_BG: "#080e2c",
+    TOP_BOTTOM_BG: "#031d44",
+    MID_BG: '#0b0014',
     Box: "#080e2c",
     MODAL_BG: "#ced4da",
     Zero_Cash_BG: "#d90429",
@@ -53,4 +53,5 @@ export default {
     bkash: "#FF007F",
     rocket: "#A45EE9",
     nagad: "#FF5349",
+    CARD_BG: "#0466c8"
 }

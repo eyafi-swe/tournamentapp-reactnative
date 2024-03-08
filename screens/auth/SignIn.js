@@ -1,12 +1,13 @@
 import { useContext, useState } from 'react'
-import { ActivityIndicator, Alert, StyleSheet, Text, TextInput, View } from 'react-native'
+import { ActivityIndicator, Alert, Image, StyleSheet, Text, TextInput, View } from 'react-native'
 import g from '../../assets/styles/global'
 import CText from '../../components/common/CText'
 import colors from '../../assets/constants/colors'
 import CInput from '../../components/common/CInput'
 import CButtonInput from '../../components/common/CButtonInput'
 import { AuthContext } from '../../context/UserContext'
-import GoogleIcon from '../../assets/svg/GoogleIcon'
+import Logo from '../../assets/img/Logo.png'
+import NameText from '../../assets/img/nametext2.png'
 import CGoogleButtonInput from '../../components/common/CGoogleButtonInput'
 import { BASE_URL } from '../../utils/constants'
 
@@ -111,7 +112,11 @@ const SignIn = ({ navigation }) => {
         return (
             <View style={[s.container]}>
                 {/* <LogoIcon /> */}
-                <Text style={s.header}>Cholo Kheli</Text>
+                <View style={{ justifyContent: 'center', alignItems: "center", marginBottom: 20 }}>
+                    <Image source={Logo} style={{ width: 100, height: 100, }} />
+                    <Image source={NameText} />
+
+                </View>
                 <CInput
                     spaces={false}
                     maxLength={255}
@@ -137,7 +142,7 @@ const SignIn = ({ navigation }) => {
                 <CGoogleButtonInput
                     onPress={handleGoogleSignIn}
                     label='Google'
-                    style={{ width: '100%', marginTop: 16, backgroundColor: '#E71C23' }}
+                    style={{ width: '100%', marginTop: 16, backgroundColor: '#9a031e' }}
                 />
 
 
@@ -183,9 +188,9 @@ const s = StyleSheet.create({
         // position: 'relative',
     },
     header: {
-        color: colors.WHITE,
+        color: colors.BTN_BG,
         fontSize: 32,
-        fontFamily: 'inter-bold',
+        fontFamily: 'gaming-font',
         fontWeight: '700',
         textAlign: 'center',
         marginBottom: 32,

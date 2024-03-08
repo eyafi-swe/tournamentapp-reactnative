@@ -122,7 +122,7 @@ const s = StyleSheet.create({
         // height: '35%',
         // height: '60%',
         alignItems: 'stretch',
-        backgroundColor: colors.CONTAINER_BG,
+        backgroundColor: colors.MODAL_BG,
         borderRadius: 20,
         paddingHorizontal: 20,
         paddingBottom: 54,
@@ -146,7 +146,7 @@ const s = StyleSheet.create({
     },
     headerLabel: {
         fontSize: 18,
-        fontWeight: 'normal',
+        fontWeight: '700',
         // marginLeft: 8,
     },
     settingsItemContainer: {

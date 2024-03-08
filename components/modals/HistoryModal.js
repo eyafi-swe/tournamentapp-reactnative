@@ -96,7 +96,7 @@ const s = StyleSheet.create({
     width: '95%',
     height: '95%',
     alignItems: 'stretch',
-    backgroundColor: colors.END_BG,
+    backgroundColor: colors.MODAL_BG,
     borderRadius: 20,
     paddingHorizontal: 20,
     paddingBottom: 24,

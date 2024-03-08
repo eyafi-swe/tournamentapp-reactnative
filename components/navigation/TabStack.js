@@ -7,6 +7,7 @@ import WalletIcon from '../../assets/svg/WalletIcon';
 import DiamondIcon from '../../assets/svg/DiamondIcon';
 import HomeStack from './HomeStack';
 import WalletScreen from '../../screens/wallet/WalletScreen';
+import Profile from '../../screens/profile/Profile';
 
 const Tab = createBottomTabNavigator()
 
@@ -81,7 +82,7 @@ const TabStack = () => {
                             </View>
                         ),
                     }}
-                    component={HomeStack}
+                    component={Profile}
                 />
 
 

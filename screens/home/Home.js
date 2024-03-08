@@ -8,6 +8,7 @@ import Carousel from 'react-native-anchor-carousel';
 import MicIcon from '../../assets/svg/MicIcon'
 import { BASE_URL } from '../../utils/constants'
 import Header from '../../components/sections/Header'
+import GameIcon from '../../assets/svg/GameIcon'
 
 const data = [
   { id: 1, title: 'Item 1', uri: 'https://static.vecteezy.com/system/resources/thumbnails/022/192/222/small/hooded-masked-actor-young-fantastic-ai-photo.jpg' },
@@ -88,12 +89,12 @@ const Home = ({ navigation }) => {
         <View style={[s.outerPadding]}>
           <Header navigation={navigation} newsCount={news.length} />
           <ScrollView style={{ flex: 1, }}>
-            <View style={{ flexDirection: 'row', marginHorizontal: 20, backgroundColor: colors.INPUT_BG, marginBottom: 20, paddingHorizontal: 5, borderRadius: 10 }}>
+            <View style={{ flexDirection: 'row', marginHorizontal: 20, marginBottom: 20, paddingHorizontal: 5, borderRadius: 10, borderWidth: 1, borderStyle: 'dashed', borderColor: colors.BTN_BG }}>
               <View style={{ paddingVertical: 10, paddingRight: 5, borderRightWidth: 1.5, borderRightColor: colors.COMPLETED_BG }}>
                 <MicIcon />
               </View>
               <View style={{ paddingHorizontal: 5, width: '80%', paddingVertical: 10 }}>
-                <Text style={{ fontWeight: '700', textAlign: 'center' }}>
+                <Text style={{ fontWeight: '700', textAlign: 'center', color: colors.WHITE }}>
                   {announcementLoading ? '...' : announcement}
                 </Text>
               </View>
@@ -112,11 +113,14 @@ const Home = ({ navigation }) => {
 
 
             <View style={{ marginTop: 20, paddingHorizontal: 16 }}>
-              <Text style={s.header}>Starting Really Soon</Text>
-
+              <View style={{ flexDirection: 'row', gap: 5, justifyContent: 'center', alignItems: 'center' }}>
+                <GameIcon />
+                <Text style={s.header}>Starting Really Soon</Text>
+                <GameIcon />
+              </View>
               <View style={s.startingViewTop}>
-                <Text style={{ color: colors.WHITE }}>FREE FIRE TOURNAMENT</Text>
-                <Text style={{ color: colors.RED_NORMAL }}> <View style={s.dot} /> SOLO <View style={s.dot} />TPP <View style={s.dot} />BERMUDA</Text>
+                <Text style={{ color: colors.WHITE }}>LATEST TOURNAMENT</Text>
+                <Text style={{ color: colors.RED_NORMAL }}> <View style={s.dot} /> SOLO <View style={s.dot} />DUO <View style={s.dot} />SQUAD</Text>
               </View>
 
               <View style={s.startingView}>
@@ -143,8 +147,12 @@ const Home = ({ navigation }) => {
             </View>
 
 
-            <View style={{ marginTop: 50, paddingHorizontal: 20 }}>
-              <Text style={s.headerTwo}>Tournaments</Text>
+            <View style={{ marginTop: 10, paddingHorizontal: 20 }}>
+              <View style={{ flexDirection: 'row', gap: 5, justifyContent: 'center', alignItems: 'center' }}>
+                <GameIcon />
+                <Text style={s.headerTwo}>Tournaments</Text>
+                <GameIcon />
+              </View>
               <View style={{ marginTop: 20, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                 {
                   contests.length == 0 ? <Text style={{ color: colors.WHITE, textAlign: 'center', width: '100%' }}>No tournaments</Text> :
@@ -185,7 +193,7 @@ const s = StyleSheet.create({
     height: 5,
     width: 5,
     borderRadius: 5,
-    backgroundColor: colors.GREEN_NORMAL
+    backgroundColor: colors.BTN_BG
   },
 
   freefireImage: {

@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 		// backgroundColor: 'red',
 	},
 	modalContent: {
-		backgroundColor: '#F2F6FF',
+		backgroundColor: colors.CARD_BG,
 		width: '100%',
 		paddingHorizontal: 10,
 		paddingVertical: 27,
@@ -80,9 +80,10 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		textAlign: 'center',
 		paddingVertical: 5,
+		color: colors.WHITE,
 	},
 	border: {
-		borderColor: '#FFFFFF',
+		borderColor: '#468faf',
 		borderTopWidth: 1,
 	},
 	modal2: {

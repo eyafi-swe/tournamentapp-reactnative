@@ -62,12 +62,11 @@ const s = StyleSheet.create({
     },
     modalContainer: {
         width: '70%',
-        height: '38%',
         alignItems: 'stretch',
-        backgroundColor: colors.CONTAINER_BG,
+        backgroundColor: colors.MODAL_BG,
         borderRadius: 20,
         paddingHorizontal: 20,
-        paddingBottom: 24,
+        paddingBottom: 34,
         paddingTop: 8,
 
     },
@@ -79,7 +78,7 @@ const s = StyleSheet.create({
         justifyContent: 'center',
         // flex: 1,
         minHeight: 60,
-        backgroundColor: colors.END_BG,
+        backgroundColor: colors.PRIM_BG,
         paddingHorizontal: 20,
         borderRadius: 8,
     },
@@ -88,7 +87,7 @@ const s = StyleSheet.create({
     },
     headerLabel: {
         fontSize: 18,
-        fontWeight: 'normal',
+        fontWeight: '700',
         // marginLeft: 8,
     },
     settingsItemContainer: {

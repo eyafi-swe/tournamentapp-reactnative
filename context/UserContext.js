@@ -58,7 +58,28 @@ const UserContext = ({ children }) => {
 
 
     const updateUserInfo = async (price, deduct = true) => {
+        let userInfo = await AsyncStorage.getItem('user')
+        userInfo = JSON.parse(userInfo)
+        await AsyncStorage.setItem('user', JSON.stringify(userInfo))
 
+        fetch(`${BASE_URL}/users/update-wallet/${user.email}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ wallet: parseInt(price) })
+        })
+            .then(res => res.json())
+            .then(async (data) => {
+                if (data.success) {
+                    userInfo.wallet = parseInt(userInfo.wallet) - price
+                    await AsyncStorage.setItem('user', JSON.stringify(userInfo))
+                }
+                console.log(data)
+            })
+            .catch(err => {
+                console.log(err, 'here')
+            })
 
     }
 
@@ -88,7 +109,20 @@ const UserContext = ({ children }) => {
     }
 
     const fetchNews = () => {
-
+        setNewsLoading(true)
+        fetch(`${BASE_URL}/announcement/news`)
+            .then(res => res.json())
+            .then(data => {
+                setNews(data)
+                // console.log(data, 'news')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+            .finally(() => {
+                // console.log('finally')
+                setNewsLoading(false)
+            })
     }
 
     if (initializing) return null;

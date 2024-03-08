@@ -15,6 +15,7 @@ export default function App() {
     'inter-medium': require('./assets/fonts/Inter-Medium.ttf'),
     'inter-semibold': require('./assets/fonts/Inter-SemiBold.ttf'),
     'inter-regular': require('./assets/fonts/Inter-Regular.ttf'),
+    'gaming-font': require('./assets/fonts/gamingfont.ttf'),
   })
 
   useEffect(() => {

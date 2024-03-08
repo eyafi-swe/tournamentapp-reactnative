@@ -12,7 +12,7 @@ import VideoIcon from '../../assets/svg/VideoIcon'
 import AddMoneyModal from '../../components/modals/AddMoneyModal'
 import WithdrawMoneyModal from '../../components/modals/WithdrawMoneyModal'
 import VideoPlayModal from '../../components/modals/VideoPlayModal'
-import { BASE_URL, BASE_URL_DEMO } from '../../utils/constants'
+import { BASE_URL } from '../../utils/constants'
 import Header from '../../components/sections/Header'
 
 
@@ -81,25 +81,6 @@ const WalletScreen = ({ navigation }) => {
             })
     }
 
-    useEffect(() => {
-        fetch(`${BASE_URL_DEMO}/tutorial`)
-            .then(res => res.json())
-            .then(data => {
-                const tutorialLinks = data[0]
-                const addMoney = tutorialLinks.addMoney.split('v=')[1]
-                const joinMacth = tutorialLinks.joinMatch.split('v=')[1]
-                const withdrawMoney = tutorialLinks.withdrawMoney.split('v=')[1]
-                setTutorials({
-                    addMoney,
-                    joinMacth,
-                    withdrawMoney
-                })
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }, [])
-
 
 
 
@@ -163,7 +144,7 @@ const WalletScreen = ({ navigation }) => {
                                     </View>
                                 </TouchableOpacity>
                             </View>
-                            <View style={s.actionList}>
+                            {/* <View style={s.actionList}>
                                 <Text style={s.actionText}>How To Join Match</Text>
                                 <TouchableOpacity
 
@@ -212,7 +193,7 @@ const WalletScreen = ({ navigation }) => {
                                         <Text style={{ color: colors.WHITE, fontSize: 12, fontWeight: 'bold', marginLeft: 5 }}>Video</Text>
                                     </View>
                                 </TouchableOpacity>
-                            </View>
+                            </View> */}
                         </View>
                     </View>
                 </View>
