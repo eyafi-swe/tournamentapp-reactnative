@@ -24,7 +24,8 @@
       },
       "googleServicesFile": "./google-services.json",
       "softwareKeyboardLayoutMode": "pan",
-      "package": "com.eyafineo.mobapp"
+      "package": "com.eyafineo.mobapp",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"

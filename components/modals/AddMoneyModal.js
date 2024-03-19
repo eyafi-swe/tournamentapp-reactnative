@@ -126,7 +126,6 @@ export default function AddMoneyModal({
                             setTransactionId(e)
                         }}
                         placeholder='Transaction ID'
-                        keyboardType='numeric'
                     />
 
                     <View style={{ marginTop: 10 }}>
