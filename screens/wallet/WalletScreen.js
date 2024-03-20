@@ -27,6 +27,7 @@ const WalletScreen = ({ navigation }) => {
     const [videoID, setVideoID] = useState(null)
     const [tutorials, setTutorials] = useState({})
     const [refetch, setRefetch] = useState(false)
+    const [paymentNumbers, setPaymentNumbers] = useState({})
 
     const isfocused = useIsFocused()
 
@@ -48,7 +49,21 @@ const WalletScreen = ({ navigation }) => {
 
     }, [isfocused, refetch])
 
-
+    useEffect(() => {
+        fetch(`${BASE_URL}/home/payment-numbers`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setPaymentNumbers(data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
 
     const handleWithdrawMoney = (accountType, accountNumber, amount) => {
         const body = {
@@ -92,6 +107,7 @@ const WalletScreen = ({ navigation }) => {
                     setVisibility={setOpenAddMoneyModal}
                     user={userData}
                     navigation={navigation}
+                    paymentNumbers={paymentNumbers}
                 />
 
                 <VideoPlayModal

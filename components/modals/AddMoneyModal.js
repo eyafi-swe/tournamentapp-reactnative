@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Alert, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import * as Clipboard from 'expo-clipboard';
 import CButtonInput from '../common/CButtonInput'
 import CHeaderWithBack from '../common/CHeaderWithBack'
 import colors from '../../assets/constants/colors'
-import CInput from '../common/CInput'
 import RadioIcon from '../../assets/svg/RadioIcon'
 import { addMoneyNumbers } from '../../utils/constants'
 import { BASE_URL } from '../../utils/constants'
@@ -13,6 +13,7 @@ export default function AddMoneyModal({
     visibility,
     setVisibility,
     user,
+    paymentNumbers,
 }) {
 
     const [amount, setAmount] = useState('')
@@ -28,8 +29,8 @@ export default function AddMoneyModal({
             Alert.alert('Invalid Amount', 'Please enter a valid amount')
             return
         }
-        if (transactionId === '') {
-            Alert.alert('Invalid Transaction ID', 'Please enter a valid transaction ID')
+        if (transactionId.length !== 11) {
+            Alert.alert('Invalid account number', 'Please enter a valid account number')
             return
         }
         else {
@@ -77,6 +78,9 @@ export default function AddMoneyModal({
         setVisibility(false)
     }
 
+    const copyToClipboard = async (number) => {
+        await Clipboard.setStringAsync(number);
+    };
 
     return (
         <Modal transparent visible={visibility} animationType="fade" onRequestClose={closeModal} statusBarTranslucent={true} >
@@ -118,14 +122,16 @@ export default function AddMoneyModal({
                         keyboardType='numeric'
                     />
 
-                    <Text style={{ marginVertical: 5 }}>Transaction ID</Text>
+                    <Text style={{ marginVertical: 5 }}>Your Account Number</Text>
                     <TextInput
                         style={s.input}
                         value={transactionId}
                         onChangeText={(e) => {
                             setTransactionId(e)
                         }}
-                        placeholder='Transaction ID'
+                        placeholder='Your Account Number'
+                        keyboardType='numeric'
+                        maxLength={11}
                     />
 
                     <View style={{ marginTop: 10 }}>
@@ -135,11 +141,11 @@ export default function AddMoneyModal({
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
                             <RadioIcon color={colors[active]} />
-                            <Text style={{ fontSize: 14, fontWeight: '600', color: colors[active] }}>Go to Send Money Option.</Text>
+                            <Text style={{ fontSize: 14, fontWeight: '600', color: colors[active] }}>Go to Cash Out Option.</Text>
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
                             <RadioIcon color={colors[active]} />
-                            <Text style={{ fontSize: 14, fontWeight: '600', color: colors[active] }}>Enter {addMoneyNumbers[active].number} as receiver.</Text>
+                            <Text style={{ fontSize: 14, fontWeight: '600', color: colors[active] }}>Enter {paymentNumbers[active]} as receiver.</Text>
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
                             <RadioIcon color={colors[active]} />
@@ -149,13 +155,20 @@ export default function AddMoneyModal({
                             <RadioIcon color={colors[active]} />
                             <Text style={{ fontSize: 14, fontWeight: '600', color: colors[active] }}>Enter the transaction id here and press verify.</Text>
                         </View>
+
+                        <TouchableOpacity
+                            onPress={() => copyToClipboard(paymentNumbers[active])}
+                            style={{ marginVertical: 10, justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderRadius: 8, borderColor: colors[active] }}
+                        >
+                            <Text style={{ fontSize: 14, fontWeight: '600', color: colors[active] }}>Copy {paymentNumbers[active]}</Text>
+                        </TouchableOpacity>
                     </View>
 
                     <CButtonInput
                         label="Continue"
                         loading={loading}
                         onPress={handleInput}
-                        style={{ marginTop: 20, backgroundColor: colors[active] }}
+                        style={{ backgroundColor: colors[active] }}
 
                     />
                 </View>

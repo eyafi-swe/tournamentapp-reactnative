@@ -89,13 +89,13 @@ const ContestDetails = ({ navigation, route }) => {
     }, [refetchResultList, userData])
 
 
-    const handleJoin = async (item, playerId) => {
+    const handleJoin = async (item, players, mode) => {
         let userInfo = await AsyncStorage.getItem('user')
         userInfo = JSON.parse(userInfo)
-        console.log(item._id, playerId, user.email)
+        console.log(item._id, players, user.email)
         const body = {
             user_email: user.email,
-            game_uid: playerId,
+            game_uid: players,
         }
 
         if (userInfo.wallet < item.joinFee) {
@@ -123,6 +123,7 @@ const ContestDetails = ({ navigation, route }) => {
             })
             .finally(() => {
                 setRefetchList(!refetchList)
+                setOpenJoinModal(false)
             })
     }
 
@@ -170,7 +171,7 @@ const ContestDetails = ({ navigation, route }) => {
                     </View>
                     <View style={{ marginTop: 10 }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <Text style={{ fontSize: 16, color: "#e9ecef", fontWeight: '700' }}>Slots Left: {50 - totalJoined}</Text>
+                            <Text style={{ fontSize: 16, color: "#e9ecef", fontWeight: '700' }}>Slots Left: {item?.slot - totalJoined}</Text>
                             <TouchableOpacity
                                 onPress={() => {
                                     setPrizePoleInfo(item?.prize_pole)
@@ -179,7 +180,7 @@ const ContestDetails = ({ navigation, route }) => {
                             >
                                 <Text style={{ fontSize: 16, fontWeight: '700', borderWidth: 1, padding: 2, borderRadius: 5, borderColor: "#f8f9fa", backgroundColor: '#f8f9fa', color: colors.GREEN_NORMAL }}>See Prize Pole</Text>
                             </TouchableOpacity>
-                            <Text style={{ fontSize: 16, color: "#e9ecef", fontWeight: '700' }}>{totalJoined}/50</Text>
+                            <Text style={{ fontSize: 16, color: "#e9ecef", fontWeight: '700' }}>{totalJoined}/{item?.slot}</Text>
                         </View>
                         <TouchableOpacity style={{ backgroundColor: isJoined ? colors.PRIM_CAPTION : colors.BTN_BG, padding: 10, borderRadius: 8, marginTop: 10 }}
                             onPress={() => {

@@ -22,33 +22,21 @@ export default function HistoryModal({
 
   const renderContent = (item) => {
     const renderedContentArr = [];
-    let pending = false;
-
-    if (!item.status && !item.cancelled) {
-      pending = true;
-    }
 
     for (const key in item) {
       if (Object.hasOwnProperty.call(item, key)) {
-        const title = key == '_id' ? 'Order ID' : key == 'status' || key == 'cancelled' ? 'Status' : key.toUpperCase();
-        const value = key == 'status' && item[key] ? 'Completed' : key == 'cancelled' && item[key] ? 'Cancelled' : item[key];
+        const title = key == '_id' ? 'Order ID' : key.toUpperCase();
+        const value = item[key];
         renderedContentArr.push(
           <View key={key} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 8, borderTopWidth: key == '_id' ? 0 : 0.5, borderTopColor: colors.SEC_BG }}>
             <Text>{title}</Text>
-            <Text style={{ backgroundColor: value == 'Completed' ? colors.GREEN_NORMAL : value == 'Cancelled' ? colors.RED_NORMAL : null, color: colors.BLACK, padding: value == 'Completed' || value == 'Cancelled' ? 5 : 0, borderRadius: value == 'Completed' || value == 'Cancelled' ? 5 : 0 }}>{value}</Text>
+            <Text style={{ backgroundColor: value == 'paid' ? colors.GREEN_NORMAL : value == 'cancelled' ? colors.RED_NORMAL : value == 'pending' ? colors.Focused_TAB : null, color: colors.BLACK, padding: value == 'paid' || value == 'cancelled' || value == 'pending' ? 5 : 0, borderRadius: value == 'paid' || value == 'cancelled' || value == 'pending' ? 5 : 0 }}>{value}</Text>
           </View>
 
         );
       }
     }
-    if (pending) {
-      renderedContentArr.push(
-        <View key={item._id} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 8, borderTopWidth: 0.5, borderTopColor: colors.SEC_BG }}>
-          <Text>Status</Text>
-          <Text style={{ color: colors.BLACK, backgroundColor: colors.ICON_NORMAL, padding: 5, borderRadius: 5 }}>Pending</Text>
-        </View>
-      );
-    }
+
     return renderedContentArr;
   }
 
