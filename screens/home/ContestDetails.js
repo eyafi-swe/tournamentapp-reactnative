@@ -99,13 +99,13 @@ const ContestDetails = ({ navigation, route }) => {
         }
 
         let joinFee = 0;
-        if (mode == 'solo') {
+        if (mode == 'Solo') {
             joinFee = +item.joinFee
         }
-        else if (mode == 'duo') {
+        else if (mode == 'Duo') {
             joinFee = +item.joinFee * 2
         }
-        else if (mode == 'squad') {
+        else if (mode == 'Squad') {
             joinFee = +item.joinFee * 4
         }
 
