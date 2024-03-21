@@ -98,7 +98,19 @@ const ContestDetails = ({ navigation, route }) => {
             game_uid: players,
         }
 
-        if (userInfo.wallet < item.joinFee) {
+        let joinFee = 0;
+        if (mode == 'solo') {
+            joinFee = +item.joinFee
+        }
+        else if (mode == 'duo') {
+            joinFee = +item.joinFee * 2
+        }
+        else if (mode == 'squad') {
+            joinFee = +item.joinFee * 4
+        }
+
+
+        if (userInfo.wallet < joinFee) {
             Alert.alert('Insufficient Balance!')
             return
         }
@@ -114,7 +126,7 @@ const ContestDetails = ({ navigation, route }) => {
             .then(data => {
                 if (data.success) {
                     Alert.alert('Joined Successfully!')
-                    updateUserInfo(item.joinFee)
+                    updateUserInfo(joinFee)
                 }
                 console.log(data)
             })
