@@ -209,7 +209,11 @@ const ContestDetails = ({ navigation, route }) => {
                         {
                             totalJoined >= item?.slot ?
                                 <View style={{ backgroundColor: colors.RED_NORMAL, padding: 10, borderRadius: 8, marginTop: 10 }} >
-                                    <Text style={{ fontSize: 14, color: colors.WHITE, textAlign: 'center', fontWeight: '700' }}>Slot Full</Text>
+                                    {isJoined ?
+                                        <Text style={{ fontSize: 14, color: colors.WHITE, textAlign: 'center', fontWeight: '700' }}>{(item?.roomId && item?.passcode) ? `Room ID:${item?.roomId} | Passcode: ${item?.passcode}` : 'ROOM ID & PASSSCODE COMING'}</Text>
+                                        :
+                                        <Text style={{ fontSize: 14, color: colors.WHITE, textAlign: 'center', fontWeight: '700' }}>Slot Full</Text>
+                                    }
                                 </View>
                                 :
                                 <TouchableOpacity style={{ backgroundColor: isJoined ? colors.PRIM_CAPTION : colors.BTN_BG, padding: 10, borderRadius: 8, marginTop: 10 }}
