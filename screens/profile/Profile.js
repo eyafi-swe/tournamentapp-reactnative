@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { ActivityIndicator, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
+import { ActivityIndicator, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import g from '../../assets/styles/global'
 import colors from '../../assets/constants/colors'
 import CButtonInput from '../../components/common/CButtonInput'
@@ -125,6 +125,7 @@ const Profile = ({ navigation }) => {
                     </View>
 
                 </View>
+
                 {/* <CButtonInput onPress={() => setShowHistoryModal(true)} label='Order History' style={{ width: '100%', marginTop: 40, backgroundColor: colors.NORMAL }} /> */}
                 <View style={{ width: '100%', position: "absolute", bottom: 100 }}>
                     <CButtonInput onPress={() => setShowWithdrawHistoryModal(true)} label='Withdraw History' style={{ width: '100%', marginTop: 20, backgroundColor: colors.MID_BG, borderWidth: 1, borderColor: colors.BTN_BG }} />

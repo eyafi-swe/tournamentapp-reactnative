@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { ActivityIndicator, Alert, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, Alert, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Linking } from 'react-native'
 import g from '../../assets/styles/global'
 import colors from '../../assets/constants/colors'
 import { AuthContext } from '../../context/UserContext'
@@ -14,6 +14,9 @@ import WithdrawMoneyModal from '../../components/modals/WithdrawMoneyModal'
 import VideoPlayModal from '../../components/modals/VideoPlayModal'
 import { BASE_URL } from '../../utils/constants'
 import Header from '../../components/sections/Header'
+import TelegramIcon from '../../assets/svg/TelegramIcon'
+import YouTubeIcon from '../../assets/svg/YoutubeIcon'
+import FacebooKIcon from '../../assets/svg/FacebookIcon'
 
 
 const WalletScreen = ({ navigation }) => {
@@ -97,7 +100,14 @@ const WalletScreen = ({ navigation }) => {
     }
 
 
-
+    const openExternalApp = async (url) => {
+        // Handle potential errors
+        try {
+            await Linking.openURL(url);
+        } catch (err) {
+            console.error('Error opening external app:', err);
+        }
+    };
 
     if (!loading) {
         return (
@@ -212,6 +222,34 @@ const WalletScreen = ({ navigation }) => {
                             </View> */}
                         </View>
                     </View>
+                    <View style={{ flex: 1, justifyContent: "flex-end" }}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 16, backgroundColor: colors.BTN_BG, paddingVertical: 10, borderTopLeftRadius: 10, borderTopRightRadius: 10 }}>
+
+                            <TouchableOpacity
+                                onPress={() => openExternalApp('https://t.me/+4pyeK0Rr-HtiMTRl')}
+                                style={{ width: 40, height: 40, backgroundColor: colors.WHITE, justifyContent: 'center', alignItems: 'center', borderRadius: 20 }}
+                            >
+                                <TelegramIcon />
+                            </TouchableOpacity>
+
+                            <TouchableOpacity
+                                onPress={() => openExternalApp('https://www.youtube.com/@cholokheliapp')}
+                                style={{ width: 40, height: 40, backgroundColor: colors.WHITE, justifyContent: 'center', alignItems: 'center', borderRadius: 20 }}
+                            >
+                                <YouTubeIcon />
+                            </TouchableOpacity>
+
+                            <TouchableOpacity
+                                onPress={() => openExternalApp('https://www.facebook.com/cholokheli.pro')}
+                                style={{ width: 40, height: 40, backgroundColor: colors.WHITE, justifyContent: 'center', alignItems: 'center', borderRadius: 20 }}
+                            >
+                                <FacebooKIcon />
+
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={{ textAlign: 'center', color: colors.WHITE, backgroundColor: colors.BTN_BG, fontSize: 18, fontWeight: '700', borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>Contact</Text>
+                    </View>
+
                 </View>
             </SafeAreaView >
         )

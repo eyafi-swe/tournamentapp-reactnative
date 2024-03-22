@@ -127,11 +127,14 @@ const ContestDetails = ({ navigation, route }) => {
                 if (data.success) {
                     Alert.alert('Joined Successfully!')
                     updateUserInfo(joinFee)
+                } else {
+                    Alert.alert(data.message)
                 }
-                console.log(data)
+                // console.log(data)
             })
             .catch(err => {
                 console.log(err)
+                Alert.alert('Something went wrong!')
             })
             .finally(() => {
                 setRefetchList(!refetchList)
@@ -139,9 +142,18 @@ const ContestDetails = ({ navigation, route }) => {
             })
     }
 
+    const countPlayersInJoinedObject = (joinedObject) => {
+        const gameUid = joinedObject.game_uid;
+        return Object.keys(gameUid).length;
+    }
     const ContestCard = ({ item }) => {
         let isJoined = item?.joined?.find(e => e.user_email === user.email)
-        let totalJoined = item?.joined?.length ?? 0
+        let totalJoined = 0;
+        if (item?.joined) {
+            item.joined.forEach(joinedObject => {
+                totalJoined += countPlayersInJoinedObject(joinedObject);
+            });
+        }
         return (
             <View style={{ backgroundColor: colors.CARD_BG, marginBottom: 20, borderRadius: 8, padding: 8 }}>
                 <View>
@@ -149,7 +161,7 @@ const ContestDetails = ({ navigation, route }) => {
 
                         <Image source={{ uri: 'https://staticg.sportskeeda.com/editor/2023/11/ec57f-16992610745479-1920.jpg?w=840' }} style={{ height: 50, width: 50, borderRadius: 8 }} />
                         <View>
-                            <Text style={{ fontSize: 16, marginLeft: 10, fontWeight: '600', color: colors.WHITE }}>{item.title} | Mobile |</Text>
+                            <Text style={{ fontSize: 16, marginLeft: 10, fontWeight: '600', color: colors.WHITE }}>{item.title}</Text>
                             <Text style={{ fontSize: 15, color: colors.ICON_NORMAL, marginLeft: 10 }}>{item.date} at {item.time}</Text>
                         </View>
                     </View>
@@ -194,21 +206,28 @@ const ContestDetails = ({ navigation, route }) => {
                             </TouchableOpacity>
                             <Text style={{ fontSize: 16, color: "#e9ecef", fontWeight: '700' }}>{totalJoined}/{item?.slot}</Text>
                         </View>
-                        <TouchableOpacity style={{ backgroundColor: isJoined ? colors.PRIM_CAPTION : colors.BTN_BG, padding: 10, borderRadius: 8, marginTop: 10 }}
-                            onPress={() => {
-                                setMatchInfo(item)
-                                if (isJoined) return
-                                setOpenJoinModal(true)
-                            }}
-                        >
-                            {
-                                isJoined ?
-                                    <Text style={{ fontSize: 14, color: colors.WHITE, textAlign: 'center', fontWeight: '700' }}>{(item?.roomId && item?.passcode) ? `Room ID:${item?.roomId} | Passcode: ${item?.passcode}` : 'ROOM ID & PASSSCODE COMING'}</Text>
-                                    :
-                                    <Text style={{ fontSize: 14, color: colors.WHITE, textAlign: 'center', fontWeight: '700' }}>JOIN NOW</Text>
-                            }
+                        {
+                            totalJoined >= item?.slot ?
+                                <View style={{ backgroundColor: colors.RED_NORMAL, padding: 10, borderRadius: 8, marginTop: 10 }} >
+                                    <Text style={{ fontSize: 14, color: colors.WHITE, textAlign: 'center', fontWeight: '700' }}>Slot Full</Text>
+                                </View>
+                                :
+                                <TouchableOpacity style={{ backgroundColor: isJoined ? colors.PRIM_CAPTION : colors.BTN_BG, padding: 10, borderRadius: 8, marginTop: 10 }}
+                                    onPress={() => {
+                                        setMatchInfo(item)
+                                        if (isJoined) return
+                                        setOpenJoinModal(true)
+                                    }}
+                                >
+                                    {
+                                        isJoined ?
+                                            <Text style={{ fontSize: 14, color: colors.WHITE, textAlign: 'center', fontWeight: '700' }}>{(item?.roomId && item?.passcode) ? `Room ID:${item?.roomId} | Passcode: ${item?.passcode}` : 'ROOM ID & PASSSCODE COMING'}</Text>
+                                            :
+                                            <Text style={{ fontSize: 14, color: colors.WHITE, textAlign: 'center', fontWeight: '700' }}>JOIN NOW</Text>
+                                    }
 
-                        </TouchableOpacity>
+                                </TouchableOpacity>
+                        }
                     </View>
                 </View>
             </View>
