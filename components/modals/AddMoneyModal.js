@@ -141,7 +141,7 @@ export default function AddMoneyModal({
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
                             <RadioIcon color={colors[active]} />
-                            <Text style={{ fontSize: 14, fontWeight: '600', color: colors[active] }}>Go to Cash Out Option.</Text>
+                            <Text style={{ fontSize: 14, fontWeight: '600', color: colors[active] }}>Go to {active == 'bkash' ? 'Payment' : 'Cash Out'} Option.</Text>
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
                             <RadioIcon color={colors[active]} />
