@@ -56,6 +56,7 @@ const Home = ({ navigation }) => {
 
   useEffect(() => {
     setLoading(true)
+    console.log('fetching contests')
     fetch(`${BASE_URL}/contests`)
       .then((response) => response.json())
       .then((json) => {
@@ -63,7 +64,11 @@ const Home = ({ navigation }) => {
         setContests(json)
       })
       .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        console.log('finally')
+        setLoading(false)
+      }
+      );
   }, []);
 
 
